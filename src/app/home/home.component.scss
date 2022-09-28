@@ -1,0 +1,35 @@
+body{
+    background: #eee;
+}
+span{
+    font-size:15px;
+}
+a{
+  text-decoration:none; 
+  color: #0062cc;
+  border-bottom:2px solid #0062cc;
+}
+.box{
+    padding:60px 0px;
+}
+
+.box-part{
+    background:#FFF;
+    border-radius:0;
+    padding:20px 10px;
+    margin:20px 0px;
+    top: 0;
+}
+.text{
+    margin:20px 0px;
+}
+
+.fa{
+     color:#4183D7;
+}
+
+.searchcontainer{
+    padding: 20px;
+    // border: 2px solid rgb(8, 60, 92);
+    border-radius: 25px;
+}

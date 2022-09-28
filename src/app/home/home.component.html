@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreshReview Posts</title>
+</head>
+
+<body>
+    <div class="searchcontainer card shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="row">
+            <div class="col">
+                <select (change)="filerByUserId($event)" class="form-control" style="cursor: pointer;">
+                    <option>Select User Id</option>
+                    <option *ngFor="let userId of displayUserIdArray">{{userId}}</option>
+                </select>
+            </div>
+            <div class="col"><button class="btn btn-info btn-md"
+                    (click)="loadAllDataForDisplay()">Show All Posts</button></div>
+        </div>
+    </div>
+
+<div><h3><p class="text-center font-italic">Viewer's Post</p></h3></div>
+
+    <div class="box">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" *ngFor="let post of displypostArray">
+                    <div class="box-part text-center">
+                        <i class="fa fa-sticky-note-o fa-3x" aria-hidden="true"></i>
+                        <div class="title text-uppercase">
+                            <h4>{{post.title}}</h4>
+                        </div>
+                        <div class="text">
+                            <span>{{post.body}}</span>
+                        </div>
+                        <button class="btn btn-info" data-toggle="modal" data-target="#commentModalLong"
+                            (click)="getCommentById(post.id)">View Comments</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- This model for comment box -->
+            <div class="modal fade  ml-auto" id="commentModalLong" tabindex="-1" role="dialog"
+                aria-labelledby="commentModalLongTitle" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="commentModalLongTitle">All Comments</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+
+                            <div class="row">
+                                <div class="col-lg-12" *ngFor="let comments of commentArray">
+                                    <div class="box-part text-center">
+                                        <i class="fa fa-comments fa-3x" aria-hidden="true"></i>
+                                        <div class="title">
+                                            <h4 class="font-italic" style="font-size: 17px;">Name : <span style="font-weight: normal;">{{comments.name}}</span></h4>
+                                        </div>
+                                        <div class="title">
+                                            <h4 class="font-italic" style="font-size: 17px;">Email : <span style="font-weight: normal;">{{comments.email}}</span></h4>
+                                        </div>
+                                        <div class="text">
+                                            <h4 class="font-italic" style="font-size: 17px;">Comments : <span style="font-weight: normal;">{{comments.body}}</span></h4>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
